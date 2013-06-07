@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/router_settings" >
+        <ListPreference
+            android:defaultValue="@string/router_type_default"
+            android:dialogTitle="@string/router_type_set"
+            android:entries="@array/router_list"
+            android:entryValues="@array/router_list_values"
+            android:key="router_type"
+            android:title="@string/router_type" />
+
+        <EditTextPreference
+            android:defaultValue="@string/router_ip_default"
+            android:dialogTitle="@string/router_ip_set"
+            android:key="router_ip"
+            android:singleLine="true"
+            android:title="@string/router_ip" />
+        <EditTextPreference
+            android:dialogTitle="@string/router_password_set"
+            android:inputType="textPassword"
+            android:key="router_password"
+            android:singleLine="true"
+            android:summary="@string/router_password_summary"
+            android:title="@string/router_password" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

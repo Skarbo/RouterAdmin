@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Router Admin</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="admin_password">Admin password</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="advanced_control">Advanced Control</string>
+    <string name="title_activity_preferences">Settings</string>
+    <string name="router_settings">Router Settings</string>
+    <string name="router_ip">Router IP Address</string>
+    <string name="router_ip_set">Set Router IP Address</string>
+    <string name="router_ip_default">192.168.0.1</string>
+    <string name="router_user">Router User</string>
+    <string name="router_user_set">Set router user</string>
+    <string name="router_user_default">admin</string>
+    <string name="router_password">Router Password</string>
+    <string name="router_password_set">Set Router Password</string>
+    <string name="router_password_summary">Router admin password</string>
+    <string name="router_restart">Restart Router</string>
+    <string name="router_type">Router Type</string>
+    <string name="router_type_set">Set Router Type</string>
+    <string name="router_type_default">dlink_dir615_h1</string>
+    <string name="restart">Restart</string>
+    <string name="access_control">Access Control</string>
+    <string name="policies">Policies</string>
+    <string name="policy">Policy</string>
+    <string name="machine">Machine</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_router_preferences">RouterPreferencesActivity</string>
+    <string name="title_activity_router_admin_activity2">RouterAdminActivity</string>
+
+</resources>

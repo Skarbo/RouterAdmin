@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/routerGroup"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"   
+    android:paddingLeft="30dip"
+    android:paddingRight="6dip"
+    android:paddingTop="6dip"
+    android:paddingBottom="6dip"
+    android:text="Group"
+    android:textStyle="bold" />
+

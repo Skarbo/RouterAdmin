@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:background="@drawable/rowselector"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:padding="3dip" >
+
+    <ImageView
+        android:id="@+id/deviceDeviceImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="Device"
+        android:paddingRight="3dip"
+        android:src="@drawable/pc" />
+
+    <TextView
+        android:id="@+id/deviceNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/deviceDeviceImageView"
+        android:layout_toLeftOf="@+id/linearLayout1"
+        android:ellipsize="end"
+        android:text="Device"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/deviceInterfaceImageView"
+        android:orientation="vertical"
+        android:paddingRight="3dip" >
+
+        <TextView
+            android:id="@+id/deviceIpAddressTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Ip Address" />
+
+        <TextView
+            android:id="@+id/deviceMacTextView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="MAC"
+            android:textColor="@android:color/darker_gray" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/deviceInterfaceImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="Interface"
+        android:src="@drawable/ethernet" />
+
+</RelativeLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.skarbo.routeradmin"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Sherlock.Light" >
+        <activity
+            android:name="com.skarbo.routeradmin.PreferencesActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_preferences" >
+        </activity>
+        <activity
+            android:name="com.skarbo.routeradmin.RouterPreferencesActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_router_preferences" >
+        </activity>
+        <activity
+            android:name="com.skarbo.routeradmin.ProfileRouterPreferencesActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_preferences" >
+        </activity>
+        <activity
+            android:name="com.skarbo.routeradmin.RouterAdminActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_router_admin_activity2" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,408 @@
+{
+    "parsing":{
+        "login":{
+            "page":null,
+            "regexIsPage":"",
+            "regexLoginDetails":"",
+            "post":{
+                
+            },
+            "regexLoginFailed":""
+        },
+        "tools_restart":{
+            "page":null,
+            "regexIsPage":"",
+            "post":{
+                
+            },
+            "success":null
+        },
+        "advanced_accesscontrol":{
+            "page":null,
+            "regexIsPage":"",
+            "regexPolicy":"",
+            "policyContainer":{
+                "enable":0,
+                "policy":0,
+                "machine":0,
+                "filtering":0,
+                "logged":0,
+                "schedule":0
+            },
+            "regexEnabled":"",
+            "postEnabled":{
+                
+            },
+            "postEnabledToggle":[
+                
+            ],
+            "postPolicy":{
+                
+            }
+        },
+        "status_devices":[
+            {
+                "page":null,
+                "regexIsPage":"",
+                "containers":{
+                    
+                },
+                "deviceRegex":"",
+                "deviceObject":{
+                    "name":0,
+                    "mac":0,
+                    "inactive":0,
+                    "type":0,
+                    "ip":0,
+                    "intrface":0
+                },
+                "deviceObjectType":{
+                    "pc":null,
+                    "laptop":null,
+                    "tablet":null,
+                    "mobile":null
+                },
+                "deviceObjectInterface":{
+                    "ethernet":null,
+                    "wifi":null
+                },
+                "deviceObjectActive":null
+            }
+        ],
+        "status_info":[
+            {
+                "page":null,
+                "regexIsPage":"",
+                "generalRegex":"",
+                "containers":[
+                    
+                ],
+                "generalObject":{
+                    
+                },
+                "wanRegex":"",
+                "wanObject":{
+                    
+                },
+                "lanRegex":"",
+                "lanObject":{
+                    
+                },
+                "wlanRegex":"",
+                "wlanObject":{
+                    
+                }
+            }
+        ],
+        "notloggedin":null
+    },
+    "support":{
+        "status":{
+            "info":false,
+            "devices":false
+        },
+        "tools":{
+            "restart":false
+        },
+        "advanced":{
+            "accesscontrol":false
+        }
+    },
+    "routers":[
+        {
+            "id":"dlink",
+            "brand":"D-Link",
+            "devices":[
+                {
+                    "brandId":"dlink",
+                    "id":"dlink_dir615_h1",
+                    "name":"D-Link DIR-615 H1"
+                }
+            ],
+            "parsing":{
+                "login":{
+                    "page":"login.htm",
+                    "regexIsPage":"var login=\\{.+\\};",
+                    "regexLoginDetails":"var login=\\{multi_account:\"\\d+\",captcha:\"\\d+\",fail:\"\\d+\",identifier:\"(.*?)\"\\};",
+                    "post":{
+                        "page":"login",
+                        "submitType":"0",
+                        "identifier":"%1%",
+                        "sel_userid":"%userid%",
+                        "userid":"",
+                        "passwd":"%password%",
+                        "captchapwd":""
+                    },
+                    "regexLoginFailed":"writeBox_h1\\(\"login_fail\""
+                },
+                "tools_restart":{
+                    "page":"tools_system.htm",
+                    "regexIsPage":"<form name=\"form1\" method=\"post\" action=\"tools_system\\.htm\">"
+                },
+                "advanced_accesscontrol":{
+                    "page":"adv_access_control.htm",
+                    "regexIsPage":"<form name=\"form1\" method=\"post\" action=\"adv_access_control\\.htm\">",
+                    "regexPolicy":"\\{enable:\"(\\d+)\",policy:\"(.*?)\",machine:\"([\\w:,]+)\",filtering:\"(\\d+)\",logged:\"(\\d+)\",schedule:\"(\\d+)\"\\}",
+                    "policyContainer":{
+                        "enable":1,
+                        "policy":2,
+                        "machine":3,
+                        "filtering":4,
+                        "logged":5,
+                        "schedule":6
+                    },
+                    "regexEnabled":"var access_enable = \"(\\d+)\"",
+                    "postEnabled":{
+                        "page":"adv_access_control",
+                        "hsubmitType":"2",
+                        "hselectidx":"0",
+                        "henable":"",
+                        "hdisable":"",
+                        "access_enable":"on"
+                    },
+                    "postEnabledToggle":[
+                        "access_enable"
+                    ],
+                    "postPolicy":{
+                        "page":"adv_access_control",
+                        "hsubmitType":"2",
+                        "hselectidx":"0",
+                        "henable":"%enable%",
+                        "hdisable":"%disable%",
+                        "access_enable":"on"
+                    }
+                },
+                "status_devices":[
+                    {
+                        "page":"st_device.htm",
+                        "regexIsPage":"writeBox\\(\"lancomputers_id\"",
+                        "deviceRegex":"\\{index:\"\\d+\",ip:\"(.*?)\",mac:\"(.*?)\",expiretime:\".*?\",lease:\".*?\",hostname:\"(.*?)\"\\}",
+                        "deviceObject":{
+                            "ip":1,
+                            "mac":2,
+                            "name":3
+                        }
+                    },
+                    {
+                        "page":"st_wireless.htm",
+                        "regexIsPage":"writeBox\\(\"num_wireless_client_id\"",
+                        "deviceRegex":"\\{BSSID:\"(.*?)\".*?ip:\"(.*?)\".*?mode:\"\\d+\".*?rate:\".*?\".*?signal:\"(\\d+)\"\\}",
+                        "deviceObject":{
+                            "mac":1,
+                            "ip":2,
+                            "intrface":3
+                        },
+                        "deviceObjectInterface":{
+                            "wifi":"\\d+"
+                        }
+                    }
+                ],
+                "status_info":[
+                    {
+                        "page":"st_device.htm",
+                        "regexIsPage":"CommJs\\(\\{init:INC_COMM_PAGE,group:PAGE_GROUP_STATUS\\}\\);",
+                        "containers":[
+                            {
+                                "title":"General",
+                                "regex":"sysDate = Date.parse\\(\"(.*?)\"\\);.*?fw_ver:\"(.*?)\",hw_ver:\"(.*?)\",knl_date:\"(.*?)\"",
+                                "object":{
+                                    "Time":"%1%",
+                                    "Firmware":"%3%, %2%, %4%"
+                                }
+                            },
+                            {
+                                "title":"WAN",
+                                "regex":"var wan = \\{connection_type:\"(\\d+)\",ip:\"(.*?)\",mac:\"(.*?)\",mask:\"(.*?)\",gw:\"(.*?)\",dns1:\"(.*?)\",dns2:\"(.*?)\"\\};",
+                                "object":{
+                                    "Connection Type":"%1%",
+                                    "MAC Address":"%3%",
+                                    "IP Address":"%2%",
+                                    "Subnet Mask":"%4%",
+                                    "Default Gateway":"%5%",
+                                    "Primary DNS Server":"%6%",
+                                    "Secondary DNS Server":"%7%"
+                                }
+                            },
+                            {
+                                "title":"LAN",
+                                "regex":"var lan = \\{mac:\"(.*?)\",ip:'(.*?)',mask:'(.*?)',dhcp_en:'(\\d+)'\\};",
+                                "object":{
+                                    "MAC Address":"%1%",
+                                    "IP Address":"%2%",
+                                    "Subnet Mask":"%3%",
+                                    "DHCP Server":"%4%"
+                                }
+                            },
+                            {
+                                "title":"WLAN",
+                                "regex":"var wireless = \\{radio_en:\"(\\d+)\",mac:\"(.*?)\",ssid:\"(.*?)\",channel:\"(\\d+)\",wlan_auth:\"(\\d+)\",secMode:\"(\\d+)\"\\};",
+                                "object":{
+                                    "Radio Enabled":"%1%",
+                                    "MAC Address":"%2%",
+                                    "SSID":"%3%",
+                                    "Channel":"%4%",
+                                    "Security":"%5%"
+                                }
+                            }
+                        ],
+                        "generalRegex":"sysDate = Date.parse\\(\"(.*?)\"\\);.*?fw_ver:\"(.*?)\",hw_ver:\"(.*?)\",knl_date:\"(.*?)\"",
+                        "generalObject":{
+                            "time":"%1%",
+                            "firmware":"%3%, %2%, %4%"
+                        },
+                        "wanRegex":"var wan = \\{connection_type:\"(\\d+)\",ip:\"(.*?)\",mac:\"(.*?)\",mask:\"(.*?)\",gw:\"(.*?)\",dns1:\"(.*?)\",dns2:\"(.*?)\"\\};",
+                        "wanObject":{
+                            "connectionType":"%1%",
+                            "macAddress":"%3%",
+                            "ipAddress":"%2%",
+                            "subnetMask":"%4%",
+                            "defaultGateway":"%5%",
+                            "dnsPrimaryServer":"%6%",
+                            "dnsSecondaryServer":"%7%"
+                        },
+                        "lanRegex":"var lan = \\{mac:\"(.*?)\",ip:'(.*?)',mask:'(.*?)',dhcp_en:'(\\d+)'\\};",
+                        "lanObject":{
+                            "macAddress":"%1%",
+                            "ipAddress":"%2%",
+                            "subnetMask":"%3%",
+                            "dhcpServer":"%4%"
+                        },
+                        "wlanRegex":"var wireless = \\{radio_en:\"(\\d+)\",mac:\"(.*?)\",ssid:\"(.*?)\",channel:\"(\\d+)\",wlan_auth:\"(\\d+)\",secMode:\"(\\d+)\"\\};",
+                        "wlanObject":{
+                            "radioEnabled":"%1%",
+                            "macAddress":"%2%",
+                            "ssid":"%3%",
+                            "channel":"%4%",
+                            "security":"%5%"
+                        }
+                    }
+                ],
+                "notloggedin":"writeBox_h1\\(\"login\""
+            },
+            "support":{
+                "status":{
+                    "info":true,
+                    "devices":true
+                },
+                "tools":{
+                    "restart":true
+                },
+                "advanced":{
+                    "accesscontrol":true
+                }
+            }
+        },
+        {
+            "id":"thomson",
+            "brand":"Thomson",
+            "devices":[
+                {
+                    "brandId":"thomson",
+                    "id":"thomson_st780",
+                    "name":"Thomson ST780",
+                    "auth":true
+                }
+            ],
+            "parsing":{
+                "login":{
+                    "page":""
+                },
+                "status_devices":[
+                    {
+                        "page":"cgi/b/devs/ov/?be=0&l0=3&l1=0",
+                        "regexIsPage":"<title>.*?Local Network Devices</title>",
+                        "deviceRegex":"'name=(.*?)&key=(.*?)'.*?alt='(Inactive|Active)\\s(.*?)'.*?>([\\d.]+)</td>.*?valign='middle'>(.*?)</td>",
+                        "deviceObject":{
+                            "name":1,
+                            "mac":2,
+                            "inactive":3,
+                            "type":4,
+                            "ip":5,
+                            "intrface":6
+                        },
+                        "deviceObjectType":{
+                            "pc":"desktop",
+                            "laptop":"laptop",
+                            "tablet":"pda",
+                            "mobile":"mobile phone"
+                        },
+                        "deviceObjectInterface":{
+                            "ethernet":"unknown|etherport.",
+                            "wifi":"wlan"
+                        },
+                        "deviceObjectActive":"inactive"
+                    }
+                ],
+                "status_info":[
+                    {
+                        "page":"cgi/b/info/?be=0&l0=0&l1=0",
+                        "regexIsPage":"<title>.*?System Information</title>",
+                        "containers":[
+                            {
+                                "title":"General",
+                                "regex":"Product Name:.*?<td.*?>(.*?)</td>.*?>Software Release:.*?<td.*?>(.*?)</td>",
+                                "object":{
+                                    "Product":"%1%",
+                                    "Software":"%2%"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "page":"cgi/b/cfg/dt/?be=0&l0=0&l1=1",
+                        "regexIsPage":"<title>.*?System Configuration</title>",
+                        "containers":[
+                            {
+                                "title":"General",
+                                "regex":"Service Name:.*?<td.*?>(.*?)</td>.*?>Date:.*?<td.*?>(.*?)</td>.*?>Time:.*?<td.*?>(.*?)</td>.*?>Time Since Power-on:.*?<td.*?>(.*?)</td>",
+                                "object":{
+                                    "Service":"%1%",
+                                    "Time":"%2% %3%",
+                                    "Power-On":"%4%"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "page":"cgi/b/dsl/dt/?be=0&l0=1&l1=0",
+                        "regexIsPage":"<title>.*?DSL Connection</title>",
+                        "containers":[
+                            {
+                                "title":"DSL",
+                                "regex":"Uptime:.*?<td.*?>(.*?)</td>.*?>Bandwidth.*?:.*?<td.*?>(.*?)</td>",
+                                "object":{
+                                    "Uptime":"%1%",
+                                    "Bandwidth":"%2% (kbps)"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "page":"cgi/b/is/?be=0&l0=1&l1=1",
+                        "regexIsPage":"<title>.*?Internet Services</title>",
+                        "containers":[
+                            {
+                                "title":"Internet",
+                                "regex":"Uptime:.*?<td.*?>(.*?)</td>.*?>IP Address:.*?<td.*?>(.*?)</td>",
+                                "object":{
+                                    "Uptime":"%1%",
+                                    "IP Address":"%2%"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "support":{
+                "status":{
+                    "info":true,
+                    "devices":true
+                },
+                "tools":{
+                    "restart":true
+                },
+                "advanced":null
+            }
+        }
+    ]
+}

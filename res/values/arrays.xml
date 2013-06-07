@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="router_list">
+        <item>D-Link DIR-615 H1</item>
+    </string-array>
+    <string-array name="router_list_values">
+        <item>dlink_dir615_h1</item>
+    </string-array>
+
+</resources>
