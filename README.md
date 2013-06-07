@@ -65,6 +65,9 @@ Example JSON config object for parsing a login page:
 * [ActionBarSherlock](http://actionbarsherlock.com/)
 * [SlidingMenu](https://github.com/jfeinstein10/SlidingMenu)
 
+
+*More info to come*
+
  [1]: https://lh5.googleusercontent.com/-8SrQz5FbT5o/UbFdMuLpMKI/AAAAAAAACaQ/wu4jbwWjyNk/s400/8d16153053584a139e8ed7ee38dc5ead.png
  [2]: https://lh4.googleusercontent.com/-em35I2HmjgM/UbFiU5hT6hI/AAAAAAAACag/ZJYPa0M6qf4/s400/f06076d264124c11b0a70bc9f5ac86b0.png
  [3]: https://lh3.googleusercontent.com/-CbGknDSrUEw/UbFn3ni3SyI/AAAAAAAACaw/tECmfEXDb74/s640/b7165a949cc3453ba399aeabadd9e365.png
